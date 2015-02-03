@@ -12,7 +12,7 @@
 	<distributionManagement>
 		<snapshotRepository>
 			<id>nexus</id>
-			<url>http://localhost:8081/nexus/content/repositories/snapshots</url>
+			<url>http://localhost:8081/content/repositories/snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
 	
@@ -51,7 +51,7 @@
 				<extensions>true</extensions>
 				<configuration>
 					<serverId>nexus</serverId>
-					<nexusUrl>http://localhost:8081/nexus/</nexusUrl>
+					<nexusUrl>http://localhost:8081/</nexusUrl>
 					<!-- explicit matching using the staging profile id -->
 					<!-- <stagingProfileId>7b22736313b68</stagingProfileId> -->
 					<keepStagingRepositoryOnFailure>true</keepStagingRepositoryOnFailure>
