@@ -56,6 +56,9 @@
 					<!-- <stagingProfileId>7b22736313b68</stagingProfileId> -->
 					<keepStagingRepositoryOnFailure>true</keepStagingRepositoryOnFailure>
 					<keepStagingRepositoryOnCloseRuleFailure>true</keepStagingRepositoryOnCloseRuleFailure>
+					<!-- Uncomment AutoRelease for auto promotion to specified repo (Toll Gate Method) -->
+					<!-- <autoReleaseAfterClose>true</autoReleaseAfterClose> --> 
+
 				</configuration>
 			</plugin>
             <plugin>
