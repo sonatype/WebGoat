@@ -6,7 +6,16 @@
     <artifactId>WebGoat</artifactId>
     <packaging>war</packaging>
     <version>6.0.1</version>
-
+	<!-- If version contains -SNAPSHOT, Nexus will not allow artifact to be staged -->
+	
+	<!--Distribution management controls the Nexus repo location -->
+	<distributionManagement>
+		<snapshotRepository>
+			<id>nexus</id>
+			<url>http://localhost:8081/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+	
     <repositories>
         <repository>
             <id>maven2-repository.dev.java.net</id>
@@ -34,6 +43,21 @@
             </resource>
         </resources>
         <plugins>
+        	<plugin>
+        		<!-- Override Maven deploy plugin with Nexus deploy plugin -->
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<version>1.6.5</version> <!-- Ensure you have an up to date version of the plugin -->
+				<extensions>true</extensions>
+				<configuration>
+					<serverId>nexus</serverId>
+					<nexusUrl>http://localhost:8081/nexus/</nexusUrl>
+					<!-- explicit matching using the staging profile id -->
+					<!-- <stagingProfileId>7b22736313b68</stagingProfileId> -->
+					<keepStagingRepositoryOnFailure>true</keepStagingRepositoryOnFailure>
+					<keepStagingRepositoryOnCloseRuleFailure>true</keepStagingRepositoryOnCloseRuleFailure>
+				</configuration>
+			</plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
