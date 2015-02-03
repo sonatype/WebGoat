@@ -47,7 +47,7 @@
         		<!-- Override Maven deploy plugin with Nexus deploy plugin -->
 				<groupId>org.sonatype.plugins</groupId>
 				<artifactId>nexus-staging-maven-plugin</artifactId>
-				<version>2.2.4</version> <!-- Ensure you have an up to date version of the plugin -->
+				<version>1.6.5</version> <!-- Ensure you have an up to date version of the plugin -->
 				<extensions>true</extensions>
 				<configuration>
 					<serverId>nexus</serverId>
